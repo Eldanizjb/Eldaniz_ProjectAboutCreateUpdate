@@ -18,6 +18,8 @@ namespace EduHomeProject.Models
         public IFormFile MainImageFile { get; set; }
         [MaxLength(250)]
         public string Title { get; set; }
+        public DateTime? CreatedDate { get; set; }
+
         [Column(TypeName = "ntext")]
         public string Content { get; set; }
 

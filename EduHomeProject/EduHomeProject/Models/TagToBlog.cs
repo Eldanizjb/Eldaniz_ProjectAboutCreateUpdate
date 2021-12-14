@@ -19,5 +19,10 @@ namespace EduHomeProject.Models
         [ForeignKey("Blog")]
         public int BlogId { get; set; }
         public Blog Blog { get; set; }
+
+        public static implicit operator int(TagToBlog v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

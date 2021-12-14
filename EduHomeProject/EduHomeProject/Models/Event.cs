@@ -32,7 +32,7 @@ namespace EduHomeProject.Models
         [ForeignKey("EventUser")]
         public int UserId { get; set; }
         public EventUser EventUser { get; set; }
-        public DateTime CreateDate { get; set; }
+        public DateTime? CreateDate { get; set; }
 
         public List<TagToEvent> TagToEvent { get; set; }
         public List<EventComment> EventComments { get; set; }

@@ -82,5 +82,21 @@ namespace EduHomeProject.Areas.Admin.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+        public IActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                HttpContext.Session.SetString("NullIdError", "Id can not be null");
+                return RedirectToAction("Index");
+            }
+
+            Banner banner = _context.Banners.Find(id);
+            if (banner == null)
+            {
+                HttpContext.Session.SetString("NullDataError", "Can not found the data");
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

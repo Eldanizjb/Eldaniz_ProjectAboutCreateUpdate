@@ -57,6 +57,7 @@
                                     <td>@item.Page</td>
                                     <td>
                                         <a class="btn btn-success" asp-area="Admin" asp-controller="Banner" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                                        <a class="btn btn-success" asp-area="Admin" asp-controller="Banner" asp-action="Details" asp-route-id="@item.Id">Details</a>
                                         <a class="btn btn-danger" asp-area="Admin" asp-controller="Banner" asp-action="Delete" asp-route-id="@item.Id" onclick="return confirm('Are you sure?')">Delete</a>
                                     </td>
                                 </tr>
@@ -68,3 +69,4 @@
             </div>
         </div>
     </div>
+</div>

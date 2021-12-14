@@ -16,6 +16,8 @@ namespace EduHomeProject.Models
         public string MainImage { get; set; }
         [NotMapped]
         public IFormFile MainImageFile { get; set; }
+        public DateTime? CreatedDate { get; set; }
+
         [MaxLength(250)]
         public string Title { get; set; }
         [Column(TypeName ="ntext")]
@@ -31,6 +33,8 @@ namespace EduHomeProject.Models
 
         public List<TagToBlog> TagToBlogs { get; set; }
         public List<BlogComment> BlogComments { get; set; }
+        [NotMapped]
+        public List<int> TagToBlogsId { get; set; }
 
 
 

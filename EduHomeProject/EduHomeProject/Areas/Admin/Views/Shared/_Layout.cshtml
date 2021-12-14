@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Baza for site name:EduHome</title>
 
     <!-- Custom fonts for this template-->
     <link href="~/Areas/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -18,6 +18,8 @@
 
     <!-- Custom styles for this template-->
     <link href="~/Areas/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="~/css/main.css" rel="stylesheet" />
+
 
 </head>
 
@@ -29,15 +31,15 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="sidebar-brand d-flex align-items-center justify-content-center">
+            <li asp-area="Admin" asp-controller="Home" asp-action="Index" class="sidebar-brand d-flex align-items-center justify-content-center">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
-            </a>
+            </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+            <hr class="sidebar-divider my-0"/>
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
@@ -75,8 +77,6 @@
                     </div>
                 </div>
             </li>
-
-
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -274,9 +274,9 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Eldaniz Bashirov</span>
                                 <img class="img-profile rounded-circle"
-                                     src="~/Areas/img/undraw_profile.svg">
+                                     src="~/img/teacher/teacher1.jpg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -357,18 +357,24 @@
     <script src="~/Areas/vendor/jquery/jquery.min.js"></script>
     <script src="~/Areas/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <!-- Core plugin JavaScript-->
     <script src="~/Areas/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="~/Areas/js/sb-admin-2.min.js"></script>
 
+
     <!-- Page level plugins -->
     <script src="~/Areas/vendor/chart.js/Chart.min.js"></script>
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
 
     <!-- Page level custom scripts -->
     <script src="~/Areas/js/demo/chart-area-demo.js"></script>
     <script src="~/Areas/js/demo/chart-pie-demo.js"></script>
+    <script src="~/js/script.js"></script>
 
 </body>
 

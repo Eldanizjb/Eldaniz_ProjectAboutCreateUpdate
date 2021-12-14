@@ -175,3 +175,6 @@ C:\Users\ACER\source\repos\EduHomeProject\EduHomeProject\obj\Debug\net5.0\Razor\
 C:\Users\ACER\source\repos\EduHomeProject\EduHomeProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
 C:\Users\ACER\source\repos\EduHomeProject\EduHomeProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\Banner\Create.cshtml.g.cs
 C:\Users\ACER\source\repos\EduHomeProject\EduHomeProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\Banner\Update.cshtml.g.cs
+C:\Users\ACER\source\repos\EduHomeProject\EduHomeProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\About\Create.cshtml.g.cs
+C:\Users\ACER\source\repos\EduHomeProject\EduHomeProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\About\Update.cshtml.g.cs
+C:\Users\ACER\source\repos\EduHomeProject\EduHomeProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\Blog\Create.cshtml.g.cs

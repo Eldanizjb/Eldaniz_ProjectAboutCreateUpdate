@@ -1,45 +1,80 @@
-﻿
+﻿@model List<Blog>
+@inject IHttpContextAccessor HttpContextAccessor
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Blog</h1>
-
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
+            <a class="btn btn-primary mb-3" asp-area="Admin" asp-controller="Blog" asp-action="Create">Create</a>
+        </div>
+        <hr />
+
+        <div class="col-lg-12">
+            @*@if (HttpContextAccessor.HttpContext.Session.GetString("NullIdError") != null)
+                {
+                    <div class="alert alert-danger t1">
+                        @HttpContextAccessor.HttpContext.Session.GetString("NullIdError")
+                    </div>
+
+                    HttpContextAccessor.HttpContext.Session.Remove("NullIdError");
+                }
+
+                @if (HttpContextAccessor.HttpContext.Session.GetString("NullDataError") != null)
+                {
+                    <div class="alert alert-danger t2">
+                        @HttpContextAccessor.HttpContext.Session.GetString("NullDataError")
+                    </div>
+
+                    HttpContextAccessor.HttpContext.Session.Remove("NullDataError");
+                }*@
+        </div>
+        <hr />
+
+        <div class="col-lg-12 mt-3">
             <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">User</th>
+                        <th scope="col">Tags</th>
+                        <th scope="col">Text</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>fatt</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>twitterr</td>
-                    </tr>
+                    @{ int i = 0;
+                        foreach (var blog in Model)
+                        {
+                            i++;
+                                        <tr>
+                                            <th scope="row">@i</th>
+                                            <td><img src="~/Uploads/@blog.MainImage" alt="Alternate Text" style="width:150px; max-height:150px;" /></td>
+                                            <td>@blog.Title</td>
+                                            <td>@blog.BlogCategory.Name</td>
+                                            <td>@blog.BlogUser.Name</td>
+                                            <td>
+                                                @foreach (var tagToBlog in blog.TagToBlogs)
+                                                {
+                                                    <span>@tagToBlog.BlogTag.Name </span>
+                                                }
+                                            </td>
+                                            <td>@Html.Raw(blog.Text != null && blog.Text.Length > 150 ? blog.Text.Substring(0, 150) : blog.Text)</td>
+                                            <td>
+                                                <a class="btn btn-success" asp-area="Admin" asp-controller="Blog" asp-action="Update" asp-route-id="@blog.Id">Update</a>
+                                                <a class="btn btn-danger" asp-area="Admin" asp-controller="Blog" asp-action="Delete" asp-route-id="@blog.Id" onclick="return confirm('Are you sure?')">Delete</a>
+                                            </td>
+                                        </tr>
+                        }
+                    }
                 </tbody>
             </table>
+
         </div>
     </div>
 </div>
-
-
