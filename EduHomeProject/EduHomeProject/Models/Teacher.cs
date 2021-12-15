@@ -45,5 +45,7 @@ namespace EduHomeProject.Models
         [ForeignKey("Sosial")]
         public int Sosialİd { get; set; }
         public Sosial Sosial { get; set; }
+        [NotMapped]
+        public List<int> TagToTeacherId { get; set; }
     }
 }

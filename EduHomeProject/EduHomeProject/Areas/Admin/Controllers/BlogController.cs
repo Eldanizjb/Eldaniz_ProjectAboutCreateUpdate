@@ -65,9 +65,9 @@ namespace EduHomeProject.Areas.Admin.Controllers
 
 
                         //Create Tag to blog
-                        if (model.TagToBlogs != null && model.TagToBlogs.Count > 0)
+                        if (model.TagToBlogsId != null && model.TagToBlogsId.Count > 0)
                         {
-                            foreach (var item in model.TagToBlogs)
+                            foreach (var item in model.TagToBlogsId)
                             {
                                 TagToBlog tagToBlog = new TagToBlog();
                                 tagToBlog.TagId = item;

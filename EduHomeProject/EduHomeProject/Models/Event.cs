@@ -36,5 +36,8 @@ namespace EduHomeProject.Models
 
         public List<TagToEvent> TagToEvent { get; set; }
         public List<EventComment> EventComments { get; set; }
+        [NotMapped]
+        public List<int> TagToEventId { get; set; }
+
     }
 }

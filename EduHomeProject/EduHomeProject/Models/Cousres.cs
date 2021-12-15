@@ -37,6 +37,7 @@ namespace EduHomeProject.Models
 
         public List<TagToCousres> TagToCousres { get; set; }
         public List<CousresComment> CousresComments { get; set; }
-
+        [NotMapped]
+        public List<int> TagToCousreId { get; set; }
     }
 }

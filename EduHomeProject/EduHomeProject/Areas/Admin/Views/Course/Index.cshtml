@@ -1,45 +1,80 @@
-﻿
+﻿@model List<Cousres>
+@inject IHttpContextAccessor HttpContextAccessor
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Course</h1>
-
-
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
+            <a class="btn btn-primary mb-3" asp-area="Admin" asp-controller="Course" asp-action="Create">Create</a>
+        </div>
+        <hr />
+
+        <div class="col-lg-12">
+            @*@if (HttpContextAccessor.HttpContext.Session.GetString("NullIdError") != null)
+                {
+                    <div class="alert alert-danger t1">
+                        @HttpContextAccessor.HttpContext.Session.GetString("NullIdError")
+                    </div>
+
+                    HttpContextAccessor.HttpContext.Session.Remove("NullIdError");
+                }
+
+                @if (HttpContextAccessor.HttpContext.Session.GetString("NullDataError") != null)
+                {
+                    <div class="alert alert-danger t2">
+                        @HttpContextAccessor.HttpContext.Session.GetString("NullDataError")
+                    </div>
+
+                    HttpContextAccessor.HttpContext.Session.Remove("NullDataError");
+                }*@
+        </div>
+        <hr />
+
+        <div class="col-lg-12 mt-3">
             <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">User</th>
+                        <th scope="col">Tags</th>
+                        <th scope="col">Text</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>fatt</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>twitterr</td>
-                    </tr>
+                    @{ int i = 0;
+                        foreach (var cours in Model)
+                        {
+                            i++;
+                            <tr>
+                                <th scope="row">@i</th>
+                                <td><img src="~/Uploads/@cours.MainImage" alt="Alternate Text" style="width:150px; max-height:150px;" /></td>
+                                <td>@cours.Title</td>
+                                <td>@cours.CousresCategory.Name</td>
+                                <td>@cours.CousresUser.Name</td>
+                                <td>
+                                    @foreach (var tagToCours in cours.TagToCousres)
+                                    {
+                                        <span>@tagToCours.CousresTag.Name </span>
+                                    }
+                                </td>
+                                <td>@Html.Raw(cours.Content != null && cours.Content.Length > 150 ? cours.Content.Substring(0, 150) : cours.Content)</td>
+                                <td>
+                                    <a class="btn btn-success" asp-area="Admin" asp-controller="Course" asp-action="Update" asp-route-id="@cours.Id">Update</a>
+                                    <a class="btn btn-danger" asp-area="Admin" asp-controller="Course" asp-action="Delete" asp-route-id="@cours.Id" onclick="return confirm('Are you sure?')">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    }
                 </tbody>
             </table>
+
         </div>
     </div>
 </div>
-
